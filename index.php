@@ -1,5 +1,5 @@
 <?php
-$user_id = 2;
+$user_id = 1;
 $currency_pref = get_user_pref($user_id);
 get_prices($currency_pref);
 
@@ -26,6 +26,12 @@ function get_prices ($currency_pref) {
 function format_the_price ($currency_pref, $price) {
   if ($currency_pref == "price_sek"){
     $result = number_format($price,2,","," ");
+  } elseif ($currency_pref == "price_dkk"){
+    $result = number_format($price,2,",",".");
+  } elseif ($currency_pref == "price_usd"){
+    $result = number_format($price,2,",",".");
+  } elseif ($currency_pref == "price_eur"){
+    $result = number_format($price,2,",",".");
   }
   return $result;
 }
